@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de Tarefas</title>
+    <!-- Fonte moderna Inter do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Conectando o arquivo de visual (CSS) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container principal que centraliza o cartão na tela -->
+    <main class="container">
+        <header class="cabecalho">
+            <div class="titulo-linha">
+                <span class="icone-logo">✨</span>
+                <h1>Minhas Tarefas</h1>
+            </div>
+            <p class="subtitulo">Organize seu dia com foco e clareza</p>
+        </header>
+
+        <!-- Painel de Progresso -->
+        <section class="painel-progresso">
+            <div class="progresso-info">
+                <span id="contador-tarefas">0 de 0 concluídas</span>
+                <span id="porcentagem-progresso" class="porcentagem">0%</span>
+            </div>
+            <div class="barra-fundo">
+                <div id="barra-preenchimento" class="barra-preenchimento"></div>
+            </div>
+        </section>
+
+        <!-- Área para digitar e adicionar uma nova tarefa -->
+        <form id="form-tarefa" class="area-input">
+            <input 
+                type="text" 
+                id="input-tarefa" 
+                placeholder="Qual é a sua próxima conquista?" 
+                autocomplete="off"
+                required
+            >
+            <button type="submit" id="btn-adicionar">
+                <span>+ Adicionar</span>
+            </button>
+        </form>
+
+        <!-- Lista onde as tarefas serão inseridas pelo JavaScript -->
+        <ul id="lista-tarefas" class="lista">
+            <!-- As tarefas aparecerão aqui dinamicamente -->
+        </ul>
+
+        <!-- Mensagem exibida apenas quando não há tarefas -->
+        <div id="mensagem-vazia" class="mensagem-vazia">
+            <div class="icone-vazio">🎯</div>
+            <p>Sua lista está limpa!</p>
+            <span>Adicione uma atividade acima para começar o seu dia.</span>
+        </div>
+    </main>
+
+    <!-- Conectando o arquivo de lógica (JavaScript) -->
+    <script src="script.js"></script>
+</body>
+</html>

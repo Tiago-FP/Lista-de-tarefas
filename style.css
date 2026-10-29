@@ -1,0 +1,295 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E FUNDO DA PÁGINA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    /* Fundo em degradê moderno */
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 48px 16px;
+}
+
+/* ==========================================================================
+   2. CARTÃO PRINCIPAL
+   ========================================================================== */
+.container {
+    background-color: rgba(255, 255, 255, 0.97);
+    width: 100%;
+    max-width: 540px;
+    padding: 36px 32px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.cabecalho {
+    margin-bottom: 24px;
+}
+
+.titulo-linha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.icone-logo {
+    font-size: 1.8rem;
+}
+
+.cabecalho h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+.subtitulo {
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   3. PAINEL E BARRA DE PROGRESSO
+   ========================================================================== */
+.painel-progresso {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+}
+
+.progresso-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.porcentagem {
+    color: #6366f1;
+    font-weight: 700;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #6366f1, #10b981);
+    border-radius: 999px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   4. FORMULÁRIO DE ENTRADA (INPUT + BOTÃO)
+   ========================================================================== */
+.area-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+#input-tarefa {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+#input-tarefa:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+#btn-adicionar {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+#btn-adicionar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+#btn-adicionar:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   5. LISTA DE TAREFAS E DIFERENCIAÇÃO VISUAL (PENDENTE vs CONCLUÍDA)
+   ========================================================================== */
+.lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Estilo base de toda tarefa (Estado Pendente por padrão) */
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    /* Barra lateral amarela/laranja indicando tarefa PENDENTE */
+    border-left: 5px solid #f59e0b;
+    padding: 14px 16px;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s ease;
+}
+
+.item-tarefa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.conteudo-tarefa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.checkbox-tarefa {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #10b981;
+    flex-shrink: 0;
+}
+
+.texto-tarefa {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #1e293b;
+    word-break: break-word;
+    transition: all 0.2s ease;
+}
+
+/* Etiquetas de Status (Badges) */
+.acoes-tarefa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.badge-status {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    /* Cor amarela suave para tarefa PENDENTE */
+    background-color: #fef3c7;
+    color: #b45309;
+    transition: all 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   ESTILO ESPECIAL QUANDO A TAREFA ESTÁ CONCLUÍDA (.item-tarefa.concluida)
+   -------------------------------------------------------------------------- */
+.item-tarefa.concluida {
+    /* Fundo verde esmeralda suave e barra lateral verde */
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    border-left: 5px solid #10b981;
+}
+
+.item-tarefa.concluida .texto-tarefa {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.item-tarefa.concluida .badge-status {
+    /* Etiqueta muda para verde quando concluída */
+    background-color: #d1fae5;
+    color: #047857;
+}
+
+/* Botão de Remover */
+.btn-remover {
+    background-color: transparent;
+    color: #94a3b8;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-remover:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+/* ==========================================================================
+   6. MENSAGEM DE LISTA VAZIA
+   ========================================================================== */
+.mensagem-vazia {
+    text-align: center;
+    padding: 36px 16px;
+    color: #64748b;
+}
+
+.icone-vazio {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.mensagem-vazia p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 4px;
+}
+
+.mensagem-vazia span {
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+
+.escondido {
+    display: none;
+}
